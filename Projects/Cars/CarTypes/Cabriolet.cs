@@ -17,7 +17,6 @@ namespace Cars
 
         public bool IsRoofUp { get { return _isRoofUp; } }
 
-        //В дальнейшем можно сделать через експепшн
         public void RoofUp()
         {
             if (_isRoofUp == false)

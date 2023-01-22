@@ -44,6 +44,8 @@ namespace Cars
             this.Doors = doors;
             this.Wheels = wheels;
 
+
+            //wheels cheking
             if (wheels == null)
             {
                 throw new Exception("There are no wheels to build a car.");
@@ -51,6 +53,32 @@ namespace Cars
             else if (wheels.Length < 4 || wheels.Length > 4)
             {
                 throw new Exception($"Four(4) wheels are required to build a car. Total wheels: {wheels.Length}");
+            }
+            
+            for (int i = 1; i < 4; i++)
+            {
+                if (wheels[i].Size != wheels[0].Size)
+                {
+                    throw new Exception("The size of the wheels must be the same to build a car!");
+                }
+            }
+
+            //doors cheking
+            if (doors == null)
+            {
+                throw new Exception("There are no wheels to build a car.");
+            }
+            else if (doors.Length < 4 || doors.Length > 4)
+            {
+                throw new Exception($"Four(4) doors are required to build a car. Total doors: {doors.Length}");
+            }
+
+            for (int i = 1; i < 4; i++)
+            {
+                if (doors[i].DoorType != doors[0].DoorType)
+                {
+                    throw new Exception("The type of doors must be the same to build a car!");
+                }
             }
 
         }
