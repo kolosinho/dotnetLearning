@@ -1,3 +1,5 @@
+using Business.Managers;
+using Core.Interfaces.Managers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,6 +14,8 @@ namespace WebApplicationLearning
             // Add services to the container.
 
             builder.Services.AddControllers();
+
+            builder.Services.AddScoped(typeof(ICommentManager), typeof(CommentManager));
 
             var app = builder.Build();
 
