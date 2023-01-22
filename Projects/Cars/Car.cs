@@ -44,10 +44,13 @@ namespace Cars
             this.Doors = doors;
             this.Wheels = wheels;
 
-            if (wheels.Length < 4 || wheels.Length > 4)
+            if (wheels == null)
             {
-                Console.WriteLine($"Four(4) wheels are required to build a car. Total wheels: {wheels.Length}");
-                throw new Exception();
+                throw new Exception("There are no wheels to build a car.");
+            }
+            else if (wheels.Length < 4 || wheels.Length > 4)
+            {
+                throw new Exception($"Four(4) wheels are required to build a car. Total wheels: {wheels.Length}");
             }
 
         }

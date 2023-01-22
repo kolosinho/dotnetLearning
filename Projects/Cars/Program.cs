@@ -11,7 +11,7 @@ namespace Cars
             Wheel firstWheel = new Wheel(WheelsManufactor.Apollo, "SuperWheel", 21);
             Wheel secondWheel = new Wheel(WheelsManufactor.Apollo, "SuperWheel", 21);
 
-            Wheel[] wheels = new Wheel[] { firstWheel, secondWheel };
+            Wheel[] wheels = null;
 
             Console.WriteLine(firstWheel.Manufactor.ToString() + " " + firstWheel.ModelName + " " + firstWheel.Size + "\n");
 
