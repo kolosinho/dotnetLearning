@@ -99,45 +99,76 @@ namespace Cars
 
         public Wheel[] Wheels { get; set; }
 
-        //public Dictionary<string, string> carStatus = new Dictionary<string, string>()
-        //{
-        //    ["Car status:"] = "Car is not moving",
-        //    ["Engine status"] = "OFF",
-        //    ["Engine failure"] = "false",
-        //    ["Amount of speed limit reached"] = "Car is not moving"
-        //}
-        //;
-
-
-        public string Move(int speed)
+        public void GetCarStatus()
         {
-            //if (carstatus["engine status"] == "on" && speed <= 0)
-            //{
-            //    return "the car cannot move backward or stand still";
-            //}
-            //else if (speed > maxspeed) {
-
-            //}
-            //else
-            //{
-
-            //}
-            return "car speed";
-                      
-        }
-        public string status()
-        {
-            return "Car status";
+            Console.WriteLine($"{Engine.GetEngineStatus()}\n" +
+                $"Current speed: {currentSpeed} km/h.\n" +
+                $"The amount of max speed reached: {amountOfMaxSpeedReached}, the engine will be broken if reach it 3 times!");
         }
 
-        public string startEngine()
+        private int currentSpeed = 0;
+        private int amountOfMaxSpeedReached = 0;
+
+        public void Move(int speed)
         {
-            return "Engine has started";
+            if (Engine.EngineStatus == Engine.EngineStatusCodes.Off)
+            {
+                Console.WriteLine("The cars engine must be started for moving.");
+            }
+            else if(Engine.EngineStatus == Engine.EngineStatusCodes.On && speed <= 0)
+            {
+                Console.WriteLine("The car cannot move backward or stand still");
+            }
+            else if (Engine.EngineStatus == Engine.EngineStatusCodes.On && speed >= 0 && speed <= MaxSpeed)
+            {
+                currentSpeed = speed;
+                Console.WriteLine($"The car has been successfully accelerated to the next speed: {speed} km/h.");
+            }
+            else if (Engine.EngineStatus == Engine.EngineStatusCodes.On && speed > MaxSpeed && amountOfMaxSpeedReached < 2)
+            {
+                currentSpeed = MaxSpeed;
+                amountOfMaxSpeedReached++;
+                Console.WriteLine($"The car has accelerated to maximum speed: {MaxSpeed} km/h, but the condition of the engine has been worsened.");
+            }
+            else
+            {
+                Engine.ChangeEngineStatus(Engine.EngineStatusCodes.Broken);
+                currentSpeed = 0;
+                amountOfMaxSpeedReached = 3;
+                Console.WriteLine("You have reached the maximum speed more than 3 times, the engine has been broken.");
+            }                      
         }
 
-        public string stopEngine()
+        public void StartEngine()
         {
-            return "Engine has stopped";
+            if (Engine.EngineStatus == Engine.EngineStatusCodes.Off)
+            {
+                Engine.ChangeEngineStatus(Engine.EngineStatusCodes.On);
+                Console.WriteLine("The engine has started.");
+            }
+            else if (Engine.EngineStatus == Engine.EngineStatusCodes.Broken)
+            {
+                Console.WriteLine("The engine is broken.");
+            }
+            else
+            {
+                Console.WriteLine("The engine is already started");
+            }
+        }
+
+        public void StopEngine()
+        {
+            if (Engine.EngineStatus == Engine.EngineStatusCodes.On)
+            {
+                Engine.ChangeEngineStatus(Engine.EngineStatusCodes.Off);
+                currentSpeed = 0;
+                amountOfMaxSpeedReached = 0;
+                Console.WriteLine("The engine has stopped.");
+            }
+            else 
+            {
+                Console.WriteLine("The engine is already stopped.");
+            }
         }
 
         //Переопределенный метод ToString

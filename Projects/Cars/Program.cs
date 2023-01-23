@@ -56,7 +56,29 @@ namespace Cars
             Cabriolet Cabriolet = new Cabriolet(CarManufactor.Mercedes, "AMG 4", Colors.White, carEngine, 420, doors, wheels);
 
             Console.WriteLine(Cabriolet.Manufactor.ToString() + " " + Cabriolet.Model + " " + Cabriolet.Type.ToString() + " " + Cabriolet.Color.ToString()
-                + " " + Cabriolet.Engine.HorsePowers + " " + Cabriolet.MaxSpeed + " " + Cabriolet.GetRoofStatus());
+                + " " + Cabriolet.Engine.HorsePowers + " " + Cabriolet.MaxSpeed + " " + Cabriolet.GetRoofStatus() + "\n");
+
+            Console.WriteLine("-------Engine test--------");
+            Sedan.GetCarStatus();
+            Console.WriteLine("---------------");
+            Sedan.StartEngine();
+            Sedan.GetCarStatus();
+            Sedan.Move(50);
+            Sedan.Move(0);
+            Sedan.Move(-5);
+            Sedan.Move(500);
+            Sedan.Move(500);
+            Sedan.Move(-500);
+            Sedan.StopEngine();
+            Sedan.GetCarStatus();
+            Console.WriteLine("---------------");
+            Sedan.StartEngine();
+            Sedan.Move(500);
+            Sedan.Move(500);
+            Sedan.GetCarStatus();
+            Console.WriteLine("---------------");
+            Sedan.Move(500);
+            Sedan.GetCarStatus();
         }
     }
 }

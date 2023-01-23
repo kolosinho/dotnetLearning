@@ -35,5 +35,32 @@ namespace Cars
         public double Capacity { get; set; }
         public EngineCylinders Cylinders { get; set; }
         public int HorsePowers { get; set; }
+
+        public enum EngineStatusCodes
+        {
+            On,
+            Off,
+            Broken
+        }
+
+        private readonly Dictionary<EngineStatusCodes, string> StatusCodeMessages = new Dictionary<EngineStatusCodes, string>()
+        {
+            { EngineStatusCodes.On, "The engine status: ON." },
+            { EngineStatusCodes.Off,"The engine status: OFF."},
+            { EngineStatusCodes.Broken,"The engine status: BROKEN."}
+        };
+
+        private EngineStatusCodes engineStatus = EngineStatusCodes.Off;
+        public EngineStatusCodes EngineStatus { get { return engineStatus; } }
+
+        public void ChangeEngineStatus(EngineStatusCodes newStatus)
+        {
+            engineStatus = newStatus;
+        }
+
+        public string GetEngineStatus()
+        {
+            return StatusCodeMessages[engineStatus];
+        }
     }
 }

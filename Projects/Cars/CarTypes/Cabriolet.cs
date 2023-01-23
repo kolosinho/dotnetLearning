@@ -13,15 +13,15 @@ namespace Cars
 
         public override CarType Type { get; } = CarType.Cabriolet;
        
-        private bool _isRoofUp; //isRoofUp = true -> the roof is open, false -> the roof is down
+        private bool isRoofUp; //isRoofUp = true -> the roof is open, false -> the roof is down
 
-        public bool IsRoofUp { get { return _isRoofUp; } }
+        public bool IsRoofUp { get { return isRoofUp; } }
 
         public void RoofUp()
         {
-            if (_isRoofUp == false)
+            if (isRoofUp == false)
             {
-                _isRoofUp = true;
+                isRoofUp = true;
                 Console.WriteLine("The roof is up now");
             }
             else
@@ -33,9 +33,9 @@ namespace Cars
 
         public void RoofDown()
         {
-            if (_isRoofUp == true)
+            if (isRoofUp == true)
             {
-                _isRoofUp = false;
+                isRoofUp = false;
                 Console.WriteLine("The roof is down now");
             }
             else
@@ -46,7 +46,7 @@ namespace Cars
 
         public string GetRoofStatus()
         {
-            return _isRoofUp == false ? "The roof is down" : "The roof is up";
+            return isRoofUp == false ? "The roof is down" : "The roof is up";
         }
     }
 }

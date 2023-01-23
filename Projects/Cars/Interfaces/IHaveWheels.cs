@@ -8,6 +8,7 @@ namespace Cars
 {
     internal interface IHaveWheels
     {
+        //правильно подвязать массив колес к интерфейсу IWheel, а не к классу Wheel
         public Wheel[] Wheels { get; set; }
     }
 }

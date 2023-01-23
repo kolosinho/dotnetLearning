@@ -8,6 +8,6 @@ namespace Cars
 {
     internal interface ICanMove
     {
-        string Move(int speed);
+        void Move(int speed);
     }
 }
