@@ -26,5 +26,12 @@ namespace Cars
         public string ModelName { get; set; }
 
         public int Size { get; set; }
+        public override string ToString()
+        {
+            return $"----------Wheels info:----------" + "\n" +
+            $"Manufactor: {Manufactor}." + "\n" +
+                $"Model name: '{ModelName}'." + "\n" +
+                $"Size: {Size}.";
+        }
     }
 }

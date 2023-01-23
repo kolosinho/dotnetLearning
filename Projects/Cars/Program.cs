@@ -19,10 +19,10 @@ namespace Cars
 
             Console.WriteLine("-------Doors--------");
 
-            Door firstDoor = new Door(DoorTypes.Sliding, "Ferrari");
-            Door secondDoor = new Door(DoorTypes.Sliding, "Ferrari");
-            Door thirdDoor = new Door(DoorTypes.Sliding, "Ferrari");
-            Door fourthDoor = new Door(DoorTypes.Sliding, "Ferrari");
+            Door firstDoor = new Door(DoorTypes.Sliding, "SuperDoor");
+            Door secondDoor = new Door(DoorTypes.Sliding, "SuperDoor");
+            Door thirdDoor = new Door(DoorTypes.Sliding, "SuperDoor");
+            Door fourthDoor = new Door(DoorTypes.Sliding, "SuperDoor");
 
             Door[] doors = new Door[] { firstDoor, secondDoor, thirdDoor, fourthDoor };
 
@@ -79,6 +79,9 @@ namespace Cars
             Console.WriteLine("---------------");
             Sedan.Move(500);
             Sedan.GetCarStatus();
+            Console.Write(Sedan.ToString());
+            Console.Write(Cabriolet.ToString());
+
         }
     }
 }

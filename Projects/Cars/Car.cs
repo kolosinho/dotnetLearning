@@ -99,15 +99,15 @@ namespace Cars
 
         public Wheel[] Wheels { get; set; }
 
+        private int currentSpeed = 0;
+
+        private int amountOfMaxSpeedReached = 0;
         public void GetCarStatus()
         {
             Console.WriteLine($"{Engine.GetEngineStatus()}\n" +
                 $"Current speed: {currentSpeed} km/h.\n" +
                 $"The amount of max speed reached: {amountOfMaxSpeedReached}, the engine will be broken if reach it 3 times!");
         }
-
-        private int currentSpeed = 0;
-        private int amountOfMaxSpeedReached = 0;
 
         public void Move(int speed)
         {
@@ -170,7 +170,18 @@ namespace Cars
                 Console.WriteLine("The engine is already stopped.");
             }
         }
-
-        //Переопределенный метод ToString
+        public override string ToString()
+        {
+            return $"----------CAR INFO:----------" + "\n" +
+                $"Manufactor: {Manufactor}." + "\n" +
+                $"Model: {Model}." + "\n" +
+                $"Type: {Type}." + "\n" +
+                $"Color: {Color}." + "\n" +
+                $"Max speed: {MaxSpeed} km/h." + "\n" +
+                Engine.ToString() + "\n" +
+                Wheels[0].ToString() + "\n" +
+                Doors[0].ToString() +"\n";
+        }
     }
 }
+

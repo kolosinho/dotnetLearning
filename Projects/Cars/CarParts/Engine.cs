@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -61,6 +63,14 @@ namespace Cars
         public string GetEngineStatus()
         {
             return StatusCodeMessages[engineStatus];
+        }
+        public override string ToString()
+        {
+            return $"----------Engine info:----------" + "\n" +
+            $"Manufactor: {Manufactor}." + "\n" +
+                $"Capacity: {Capacity}L." + "\n" +
+                $"Cylinders: {Cylinders}." + "\n" +
+                $"Horse powers: {HorsePowers}.";
         }
     }
 }

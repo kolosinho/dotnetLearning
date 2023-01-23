@@ -25,6 +25,11 @@ namespace Cars
         }
         public DoorTypes DoorType { get; set; }
         public string ModelName { get; set; }
-
+        public override string ToString()
+        {
+            return $"----------Doors info:----------" + "\n" +
+            $"Door type: {DoorType}." + "\n" +
+                $"Model name: '{ModelName}'.";
+        }
     }
 }
