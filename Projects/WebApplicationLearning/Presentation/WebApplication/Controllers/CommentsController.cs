@@ -15,7 +15,7 @@ namespace WebApplicationLearning.Controllers
             this.commentManager = commentManager;
         }
 
-        [HttpPost]
+        [HttpPost, Route("LeaveComment")]
         public IActionResult LeaveComment(string message, string userName)
         {
             bool isCommentLeft = commentManager.LeaveComment(message, userName);
