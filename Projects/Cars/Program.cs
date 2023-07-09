@@ -79,8 +79,12 @@ namespace Cars
             Console.WriteLine("---------------");
             Sedan.Move(500);
             Sedan.GetCarStatus();
-            Console.Write(Sedan.ToString());
-            Console.Write(Cabriolet.ToString());
+            Console.Write(Sedan);
+            Console.Write(Cabriolet);
+
+            Car test = new Sedan(CarManufactor.BMW, "M5", Colors.Red, carEngine, 400, doors, wheels);
+            Console.WriteLine(test.GetType().);
+
 
         }
     }

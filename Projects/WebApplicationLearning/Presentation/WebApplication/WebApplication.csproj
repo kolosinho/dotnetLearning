@@ -7,4 +7,9 @@
     <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))Learning</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Business\Business.csproj" />
+    <ProjectReference Include="..\..\Common\Core\Core.csproj" />
+  </ItemGroup>
+
 </Project>
