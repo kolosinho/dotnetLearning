@@ -2,6 +2,10 @@ using Business.Managers;
 using Core.Interfaces.Managers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;на
+using Microsoft.EntityFrameworkCore;
+using Data.ApplicationContext;
+using Core.Interfaces.Repositories;
+using Data.Repository;
 
 namespace WebApplicationLearning
 {
@@ -16,6 +20,10 @@ namespace WebApplicationLearning
             builder.Services.AddControllers();
 
             builder.Services.AddScoped(typeof(ICommentManager), typeof(CommentManager));
+            builder.Services.AddScoped(typeof(ICommentRepository), typeof(CommentRepository));
+
+            builder.Services.AddDbContext<DbApplicationContext>(
+                    options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Learning;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
 
             var app = builder.Build();
 
@@ -24,7 +32,6 @@ namespace WebApplicationLearning
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
