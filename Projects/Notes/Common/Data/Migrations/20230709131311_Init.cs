@@ -20,6 +20,7 @@ namespace Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Street = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Age = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -29,11 +30,11 @@ namespace Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "NoteUsers",
-                columns: new[] { "Id", "Age", "FirstName", "LastName" },
+                columns: new[] { "Id", "Age", "FirstName", "LastName", "Street" },
                 values: new object[,]
                 {
-                    { 1, 55, "Andriy", "Svyryd" },
-                    { 2, 23, "Dmytro", "Bevziuk" }
+                    { 1, 55, "Andriy", "Svyryd", null },
+                    { 2, 23, "Dmytro", "Bevziuk", null }
                 });
         }
 
