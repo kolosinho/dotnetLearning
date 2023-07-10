@@ -9,7 +9,7 @@
 <button id="delete-users-btn" class="btn btn-danger">Delete</button>
 <br/>
 
-<div id="users">
+<div>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -19,7 +19,7 @@
           <th class="w-10" scope="col">Delete</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="users">
           @foreach (var user in Model.Users!)
           {
               <tr>
