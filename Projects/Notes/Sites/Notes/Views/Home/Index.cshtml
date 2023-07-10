@@ -2,11 +2,4 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model Notes.ViewModels.Home.IndexViewModel
-
-@foreach (var user in Model.Users!)
-{
-    <p>@user.Name</p>
-    <hr/>
-    <br/>
-}
+<a href="/noteuser/list">Users</a>
