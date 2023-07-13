@@ -23,10 +23,10 @@
           @foreach (var user in Model.Users!)
           {
               <tr>
-                  <th scope="row">@user.Id</th>
-                  <td>@user.Name</td>
-                  <td>@user.Age</td>
-              <td><input type="checkbox"></td>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Age</td>
+                <td><input type="checkbox" data-user-id="@user.Id"></td>
               </tr>
           }
       </tbody>

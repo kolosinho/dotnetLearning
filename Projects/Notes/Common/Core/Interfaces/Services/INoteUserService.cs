@@ -5,5 +5,7 @@ namespace Core.Interfaces.Services;
 
 public interface INoteUserService
 {
-    public Task<NoteUser[]> GetAllUsers();
+    public Task<NoteUser[]> GetAllUsersAsync();
+
+    public Task DeleteUsersByIdsAsync(int[] usersIds);
 }

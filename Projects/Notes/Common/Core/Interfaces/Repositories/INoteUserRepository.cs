@@ -5,5 +5,7 @@ namespace Core.Interfaces.Repositories;
 
 public interface INoteUserRepository
 {
-    public Task<NoteUser[]> GetAllUsers();
+    public Task<NoteUser[]> GetAllUsersAsync();
+
+    public Task DeleteUsersByIdsAsync(int[] usersIds);
 }

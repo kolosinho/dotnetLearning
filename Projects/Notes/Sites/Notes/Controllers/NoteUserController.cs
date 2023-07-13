@@ -21,7 +21,7 @@ public class NoteUserController : Controller
     public async Task<IActionResult> List()
     {
         IndexViewModel model = new IndexViewModel();
-        NoteUser[] users = await _noteUserService.GetAllUsers();
+        NoteUser[] users = await _noteUserService.GetAllUsersAsync();
         model.Users = _mapper.Map<IndexViewModel.NoteUser[]>(users);
         
         return View(model);

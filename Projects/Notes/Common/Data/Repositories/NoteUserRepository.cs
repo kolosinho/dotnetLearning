@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Core.Interfaces.Repositories;
 using Core.Models;
@@ -14,8 +15,16 @@ public class NoteUserRepository : INoteUserRepository
         _dbContext = dbContext;
     }
     
-    public async Task<NoteUser[]> GetAllUsers()
+    public async Task<NoteUser[]> GetAllUsersAsync()
     {
         return await _dbContext.NoteUsers.ToArrayAsync();
+    }
+
+    public async Task DeleteUsersByIdsAsync(int[] usersIds)
+    {
+        await _dbContext.NoteUsers
+            .Where(nu => usersIds.Contains(nu.Id))
+            .ExecuteDeleteAsync();
+            
     }
 }

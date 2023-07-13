@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Core.Interfaces.Repositories;
 using Core.Interfaces.Services;
@@ -14,8 +15,18 @@ public class NoteUserService : INoteUserService
         _noteUserRepository = noteUserRepository;
     }
     
-    public async Task<NoteUser[]> GetAllUsers()
+    public async Task<NoteUser[]> GetAllUsersAsync()
     {
-        return await _noteUserRepository.GetAllUsers();
+        return await _noteUserRepository.GetAllUsersAsync();
+    }
+    
+    public async Task DeleteUsersByIdsAsync(int[] usersIds)
+    {
+        if (usersIds.Length == 0)
+        {
+            throw new ArgumentException();
+        }
+        
+        await _noteUserRepository.DeleteUsersByIdsAsync(usersIds);
     }
 }
