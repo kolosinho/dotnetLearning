@@ -17,6 +17,7 @@
           <th class="w-70" scope="col">Name</th>
           <th class="w-10" scope="col">Age</th>
           <th class="delete-th w-10" style="display:none" scope="col">Delete</th>
+          <th class="w-10" scope="col">Edit</th>
         </tr>
       </thead>
       <tbody id="users">
@@ -27,6 +28,7 @@
                 <td>@user.Name</td>
                 <td>@user.Age</td>
                 <td class="delete-th" style="display:none"><input type="checkbox" data-user-id="@user.Id"></td>
+                  <td><a href="@Url.Action("Edit", "NoteUser", new {id = user.Id})">Edit</a></td>
               </tr>
           }
       </tbody>

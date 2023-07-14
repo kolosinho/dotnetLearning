@@ -27,4 +27,16 @@ public class NoteUserRepository : INoteUserRepository
             .ExecuteDeleteAsync();
             
     }
+    
+    public async Task<NoteUser?> GetUserByIdAsync(int id)
+    {
+        return await _dbContext.NoteUsers.FirstOrDefaultAsync(nu => nu.Id == id);
+    }
+    
+    public async Task UpdateUserAsync(NoteUser noteUser)
+    {
+        _dbContext.NoteUsers.Update(noteUser);
+
+        await _dbContext.SaveChangesAsync();
+    }
 }

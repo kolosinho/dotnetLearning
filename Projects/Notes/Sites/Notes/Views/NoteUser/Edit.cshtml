@@ -1,0 +1,24 @@
+﻿@model Notes.ViewModels.NoteUser.NoteUserViewModel
+
+<form method="POST">
+    <div class="form-group">
+      <label for="Id">Id</label>
+      <input type="text" name="Id" id="Id" class="form-control" value="@Model.Id" readonly>
+    </div>
+  <div class="form-group">
+    <label for="FirstName">First Name</label>
+    <input type="text" name="FirstName" id="FirstName" class="form-control" value="@Model.FirstName">
+  </div>
+  <div class="form-group">
+    <label for="LastName">Last Name</label>
+    <input type="text" name="LastName" id="LastName" class="form-control" value="@Model.LastName">
+  </div>
+  <div class="form-group">
+    <label for="Age">Age</label>
+    <input type="number" name="Age" id="Age" class="form-control" value="@Model.Age">
+  </div>
+  <div class="form-group">
+    <br/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>

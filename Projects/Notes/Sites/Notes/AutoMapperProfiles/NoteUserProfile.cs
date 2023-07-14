@@ -1,6 +1,7 @@
 using AutoMapper;
 using Core.Models;
 using Notes.ViewModels.Home;
+using Notes.ViewModels.NoteUser;
 
 namespace Notes.AutoMapperProfiles;
 
@@ -13,5 +14,7 @@ public class NoteUserProfile : Profile
                 dest => dest.Name,
                 opt => opt.MapFrom(src => src.FirstName + " " + src.LastName)
             );
+
+        CreateMap<NoteUser, NoteUserViewModel>().ReverseMap();
     }
 }

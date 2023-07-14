@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Core.Interfaces.Repositories;
 using Core.Interfaces.Services;
@@ -28,5 +29,25 @@ public class NoteUserService : INoteUserService
         }
         
         await _noteUserRepository.DeleteUsersByIdsAsync(usersIds);
+    }
+    
+    public async Task<NoteUser?> GetUserById(int id)
+    {
+        if (id <= 0)
+        {
+            throw new ArgumentException();
+        }
+        
+        return await _noteUserRepository.GetUserByIdAsync(id);
+    }
+    
+    public async Task UpdateUserAsync(NoteUser noteUser)
+    {
+        if (noteUser == null)
+        {
+            throw new ArgumentException();
+        }
+
+        await _noteUserRepository.UpdateUserAsync(noteUser);
     }
 }

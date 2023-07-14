@@ -8,4 +8,8 @@ public interface INoteUserRepository
     public Task<NoteUser[]> GetAllUsersAsync();
 
     public Task DeleteUsersByIdsAsync(int[] usersIds);
+
+    public Task<NoteUser?> GetUserByIdAsync(int id);
+
+    public Task UpdateUserAsync(NoteUser noteUser);
 }
