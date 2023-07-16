@@ -7,6 +7,8 @@ public interface INoteUserService
 {
     public Task<NoteUser[]> GetAllUsersAsync();
 
+    public Task CreateUserAsync(NoteUser noteUser);
+
     public Task DeleteUsersByIdsAsync(int[] usersIds);
 
     public Task<NoteUser?> GetUserById(int id);

@@ -44,7 +44,8 @@ $(document).ready(function () {
                 usersTable += '<tr><td>' + user.id + '</td>'
                 usersTable += '<td>' + user.name + '</td>'
                 usersTable += '<td>' + user.age + '</td>'
-                usersTable += '<td class="delete-th" style="display:none"><input type="checkbox" data-user-id="' + user.id + '"></td></tr>'
+                usersTable += '<td class="delete-th" style="display:none"><input type="checkbox" data-user-id="' + user.id + '"></td>'
+                usersTable += '<td><a href="/NoteUser/Edit/' + user.id + '">Edit</a></td></tr>'
             })
 
             $("#users").html(usersTable);

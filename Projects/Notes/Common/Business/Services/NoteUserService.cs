@@ -40,7 +40,17 @@ public class NoteUserService : INoteUserService
         
         return await _noteUserRepository.GetUserByIdAsync(id);
     }
-    
+
+    public async Task CreateUserAsync(NoteUser noteUser)
+    {
+        if (noteUser == null)
+        {
+            throw new ArgumentException();
+        }
+
+        await _noteUserRepository.CreateUserAsync(noteUser);
+    }
+
     public async Task UpdateUserAsync(NoteUser noteUser)
     {
         if (noteUser == null)

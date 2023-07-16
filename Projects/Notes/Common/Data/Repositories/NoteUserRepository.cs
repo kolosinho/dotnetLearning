@@ -20,12 +20,18 @@ public class NoteUserRepository : INoteUserRepository
         return await _dbContext.NoteUsers.ToArrayAsync();
     }
 
+    public async Task CreateUserAsync(NoteUser noteUser)
+    {
+        _dbContext.NoteUsers.Add(noteUser);
+
+        await _dbContext.SaveChangesAsync();
+    }
+
     public async Task DeleteUsersByIdsAsync(int[] usersIds)
     {
         await _dbContext.NoteUsers
             .Where(nu => usersIds.Contains(nu.Id))
-            .ExecuteDeleteAsync();
-            
+            .ExecuteDeleteAsync();            
     }
     
     public async Task<NoteUser?> GetUserByIdAsync(int id)

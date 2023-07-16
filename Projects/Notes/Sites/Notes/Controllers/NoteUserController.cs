@@ -11,8 +11,8 @@ namespace Notes.Controllers;
 
 public class NoteUserController : Controller
 {
-    private INoteUserService _noteUserService;
-    private IMapper _mapper;
+    private readonly INoteUserService _noteUserService;
+    private readonly IMapper _mapper;
     
     public NoteUserController(INoteUserService noteUserService, IMapper mapper)
     {
@@ -28,7 +28,22 @@ public class NoteUserController : Controller
         
         return View(model);
     }
-    
+
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(NoteUserViewModel model)
+    {
+        NoteUser noteUser = _mapper.Map<NoteUser>(model);
+        await _noteUserService.CreateUserAsync(noteUser);
+
+        return RedirectToAction("List");
+    }
+
     [HttpPost]
     public async Task<IActionResult> Edit(NoteUserViewModel model)
     {
